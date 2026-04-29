@@ -16,7 +16,7 @@ jobs:
           host: 13.201.8.42
           username: ubuntu
           key: ${{ secrets.EC2_SSH_KEY }}
-          scripts: |
+          script: |
             cd ~/deploy-app
             git pull origin main
             docket stop first-container || true
