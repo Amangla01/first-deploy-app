@@ -19,7 +19,6 @@ jobs:
           script: |
             cd ~/deploy-app
             git pull origin main
-            docker stop first-container || true
-            docker rm first-container || true
-            docker build -t first-app .
+            docker rm -f first-container || true
+            docker build --no-cache -t first-app .
             docker run -d -p 3000:3000 --restart always --name first-container first-app
